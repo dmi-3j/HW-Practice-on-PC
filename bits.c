@@ -4,7 +4,7 @@ int bitAnd(int x, int y) {
     return ~(~x | ~y);
 }
 int bitXor(int x, int y){
-    return ~(~(~x & y) & ~(~x & y));
+    return ~ (x & y) & ~ (~ x & ~ y);
 }
 int thirdBits(void) {
     int b0 = 36;
@@ -22,9 +22,9 @@ int sign(int x) {
 int getByte(int x, int n){
     return (x >> (n << 3)) & 0xff;
 }
-int logicalShift(int x, int n) {
-    x = x >> n;
-    return x;
+int logicalShift(int x, int n){
+    int msk = ~ ((~ (1 << n)) << (32 - (!n & 1) + (~ n + 1)));
+    return (x >> n) & (msk);
 }
 int bang(int x) {
     return ((~((~x + 1)) & ~x) >> 31 ) & 1;
