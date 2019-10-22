@@ -1,17 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-int main()
-{
-system("chcp 1251");
-system("cls");
-int lnght;
-char s[1000];
-        printf("Enter your line: ");
-    gets(s);
-    lnght = strlen(s);
-        printf("Length of your string: %d", lnght);
-    
-	return 0;
+size_t strlenmy(char *s) {
+    int count=0;
+    while (*s++) {
+        ++count;
+    }
+    return count;
 }
+ int main(){
+    char *s = (char*)malloc(sizeof(char)*1000);
+    if (s == NULL)  {
+        printf("Memory allocation error!");
+        return -1;
+    }
+    printf("Enter the line: ");
+    gets(s);
+    int k = strlenmy(s);
+    printf("String length: ");
+    printf("%d", k);
+    free(s);
+    return 0;
+}
+
