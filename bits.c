@@ -35,7 +35,7 @@ int isPower2(int x){
 int conditional(int x, int y, int z){
     return ((!x + ~0) & y ) | (~(!x + ~0) & z);
 }
-int addOk(int x, int y) {
+int addOK(int x, int y) {
     int mask = 1 << 31;
     int mX = mask & x;
     int mY = mask & y;
