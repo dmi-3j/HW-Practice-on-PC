@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 size_t strlenmy(char *s) {
-    int count=0;
+    size_t count = 0;
     while (*s++) {
         ++count;
     }
