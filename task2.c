@@ -3,47 +3,21 @@
 
 int main()
 {
-    char *s =(char*)malloc(sizeof(int)*10000);
-    if (s == NULL) {
-        printf("Memory allocation error!");
+    char s[1000];
+    printf("Enter your line: ");
+    scanf("%s", s);
+    int res = 0;
+    size_t i = 0;
+    while ((s[i] != 0) && ('0' <= s[i]) && (s[i] <= '9')) {
+        if (('0' <= s[i]) && (s[i] <= '9')) {
+            res = res * 10 + (s[i] - '0');
+            i++;
+        }
+    }
+    if (res == 0) {
+        printf("Error! No numbers!");
         return -1;
     }
-    scanf("%s", s);
-    int k = strlen(s);
-    for (int i = 0;i<k;i++){
-    switch (s[i]){
-        case '1':
-            printf("1");
-            break;
-        case '2':
-            printf("2");
-            break;
-        case '3':
-            printf("3");
-            break;
-        case '4':
-            printf("4");
-            break;
-        case '5':
-            printf("5");
-            break;
-        case '6':
-            printf("6");
-            break;
-        case '7':
-            printf("7");
-            break;
-        case '8':
-            printf("8");
-            break;
-        case '9':
-            printf("9");
-            break;
-        case '0':
-            printf("0");
-            break;
-        }
-
-   }
+    printf("Result: %d", res);
     return 0;
 }
