@@ -17,8 +17,8 @@ void function2(void) {
 int global01=11,global02=15,global03=11;
 int main()
 {
-    static k = 1;
-    static l = 2;
+    static int k = 1;
+    static int l = 2;
     int *x = (int*)malloc(sizeof(int)*10);
     if (x == NULL) {
         printf("Error!");
@@ -34,12 +34,12 @@ int main()
     int *adr1 = &global01;
     int *adr2 = &global02;
     int *adr3 = &global03;
-    int *adr4 = &x;
+    int *adr4 = x;
     int *adr5 = &printf;
     int *adr6 = &scanf;
     int *adr10 = &function1;
     int *adr11 = &function2;
-    int *adr12 = &y;
+    int *adr12 = y;
     printf("Adress of global variables: \n");
     printf("%p\n",adr1);
     printf("%p\n",adr2);
