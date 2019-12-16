@@ -2,23 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-void base64Encode (char* in, int inl, char* out, int outl) {
-	static const char b64T[65] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-	while (inl && outl) {
-		*out++ = b64T[in[0] >> 2];
-		*out++ = b64T[((in[0] << 4) + (--inl ? (in[1]) >> 4 : 0)) & 0x3f];
-		*out++ = b64T[((in[1] << 2) + (--inl ? (in[2]) >> 6 : 0)) & 0x3f];
+void base64Encode (char* in, int inLen, char* out, int outLen) {
+	static const char b64T[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+	while (inLen && outLen) {
+        *out++ = b64T[in[0] >> 2];
+		*out++ = b64T[((in[0] << 4) + (--inLen ? (in[1]) >> 4 : 0)) & 0x3f];
+		*out++ = b64T[((in[1] << 2) + (--inLen ? (in[2]) >> 6 : 0)) & 0x3f];
 		*out++ = b64T[(in[2]) & 0x3f];
-        if (inl) {
-            inl--;
+        if (inLen) {
+            inLen--;
         }
-        if (inl) {
+        if (inLen) {
             in = in + 3;
         }
 	}
-	if (outl) {
-        *out = '\0';
-	}
+
 
 }
 int main() {
