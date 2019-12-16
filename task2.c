@@ -14,7 +14,7 @@ int main()
             i++;
         }
     }
-    if (res == 0) {
+    if (i == 0) {
         printf("Error! No numbers!");
         return -1;
     }
