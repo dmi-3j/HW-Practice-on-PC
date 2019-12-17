@@ -34,6 +34,10 @@ struct Node* createNode(int value)
 struct List* createList()
 {
 	List* list = (List*)malloc(sizeof(List));
+	if (list == NULL) {
+		printf("memory allocatuon eroor!");
+		return;
+	}
 	list->head = NULL;
 	return list;
 }
