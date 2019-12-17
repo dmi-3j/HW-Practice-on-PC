@@ -3,15 +3,15 @@
 #include <malloc.h>
 #include "list_library.h"
 
-const int ACT_1 = 1;
-const int ACT_2 = 2;
-const int ACT_3 = 3;
-const int ACT_4 = 4;
-const int ACT_5 = 5;
-const int ACT_6 = 6;
-const int ACT_7 = 7;
-const int ACT_8 = 8;
-const int ACT_9 = 9;
+const int ACTION01 = 1;
+const int ACTION02 = 2;
+const int ACTION03 = 3;
+const int ACTION04 = 4;
+const int ACTION05 = 5;
+const int ACTION06 = 6;
+const int ACTION07 = 7;
+const int ACTION08 = 8;
+const int ACTION09 = 9;
 int main()
 {
 
@@ -33,9 +33,9 @@ int main()
 		printf("\t\nEnter your choice: ");
 		scanf_s("%d", &choice);
 		switch (choice) {
-		case ACT_1:
+		case ACTION01:
 			if (list != NULL) {
-				Print(list);
+				print(list);
 				printf("\n");
 			}
 			else {
@@ -43,11 +43,11 @@ int main()
 				break;
 			}
 			break;
-		case ACT_2:
+		case ACTION02:
 			list = createList();
 			printf("\tList was created\n\n\n");
 			break;
-		case ACT_3:
+		case ACTION03:
 			if (list != NULL) {
 				printf("\n\tYour value: ");
 				scanf_s("%d", &value);
@@ -58,7 +58,7 @@ int main()
 				break;
 			}
 			break;
-		case ACT_4:
+		case ACTION04:
 			if (list != NULL) {
 				printf("\tYour value: ");
 				scanf_s("%d", &value);
@@ -69,7 +69,7 @@ int main()
 				break;
 			}
 			break;
-		case ACT_5:
+		case ACTION05:
 			if (list != NULL) {
 				printf("\tAfter element with value: ");
 				scanf_s("%d", &after);
@@ -82,7 +82,7 @@ int main()
 				break;
 			}
 			break;
-		case ACT_6:
+		case ACTION06:
 			if (list != NULL) {
 				printf("\n\tYour value: ");
 				scanf_s("%d", &value);
@@ -93,9 +93,9 @@ int main()
 				break;
 			}
 			break;
-		case ACT_7:
+		case ACTION07:
 			if (list != NULL) {
-				Clean(list);
+				clean(list);
 				printf("\tlist was cleaned\n\n");
 			}
 			else {
@@ -103,14 +103,15 @@ int main()
 				break;
 			}
 			break;
-		case ACT_9:
+		case ACTION09:
 			free(list);
-			exit(0);
+			exit(0); 
 			break;
 		default:
 			printf("\tOption not listed\n\n");
 			break;
 		}
+		free(list);													//Не будет утечки памяти? В 9 пункте при выходе лист очищается
 	}
 	return 0;
 }

@@ -18,10 +18,10 @@ void addToHead(struct List* list, int value);
 void addToTail(struct List* list, int value);
 void addAfterFromValue(struct List* list, int after, int value);
 void deleteNodeByValue(struct List* list, int value);
-void Clean(struct List* list);
-void makeLOOP(struct List* list, int from, int to);
-int Loop(struct List* list);
-void Print(struct List* list);
+void clean(struct List* list);
+void makeLoop(struct List* list, int from, int to);
+int loop(struct List* list);
+void print(struct List* list);
 struct Node* createNode(int value)
 {
 	Node* node = (Node*)malloc(sizeof(Node));
@@ -35,13 +35,13 @@ struct List* createList()
 {
 	List* list = (List*)malloc(sizeof(List));
 	if (list == NULL) {
-		printf("memory allocatuon eroor!");
+		printf("memory allocation error!");
 		return;
 	}
 	list->head = NULL;
 	return list;
 }
-void Print(List* list)
+void print(List* list)
 {
 	if (list->head && Loop(list))
 	{
@@ -103,7 +103,7 @@ void addAfterFromValue(List *list, int after, int value) {
 		node = node->next;
 	}
 }
-void Clean(List* list)
+void clean(List* list)
 {
 	Node *node = list->head;
 	while (node)
@@ -116,7 +116,7 @@ void Clean(List* list)
 	free(list);
 }
 
-int Loop(List *list)
+int loop(List *list)
 {
 	Node *one = createNode(list->head->value);
 	Node *two = createNode(list->head->value);
@@ -189,7 +189,7 @@ void deleteNodeByValue(List* list, int value)
 		free(removable);
 	}
 }
-void makeLOOP(struct List* list, int from, int to)
+void makeLoop(struct List* list, int from, int to)
 {
 	if (!list->head->next)
 	{
