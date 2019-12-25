@@ -16,7 +16,7 @@ int main()
         printf("Memory allocation error!");
         return -1;
     }
-	printf("Please enter numbers: ");
+    printf("Please enter numbers: ");
     for (int i = 0; i < N; i++) {
         scanf("%d", &a[i]);
     }
