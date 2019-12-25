@@ -6,7 +6,7 @@ int main()
     int N, j, count = 0, k = 0;
     printf("Please enter amount of numbers: ");
     scanf("%d", &N);
-	int *a = (int*)malloc(sizeof(int)*N);
+    int *a = (int*)malloc(sizeof(int)*N);
     if (a == NULL) {
         printf("Memory allocation error!");
         return -1;
@@ -44,8 +44,8 @@ int main()
     for (int i = 0; i < count; i++) {
         printf("%d ", b[i]);
     }
-	free(a);
-	free(b);
+    free(a);
+    free(b);
     return 0;
 }
 
