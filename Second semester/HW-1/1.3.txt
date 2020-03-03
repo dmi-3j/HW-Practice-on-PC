@@ -1,0 +1,35 @@
+if (x < y) {
+	A
+}
+else {
+	B
+}
+
+ldc y
+ldc x
+cmp
+ldc 1
+add
+br else
+A
+jmp endif
+else: B
+endif: ret
+
+if (x <= y) {
+	A
+}
+else {
+	B
+}
+
+ldc y
+ldc x
+cmp
+ldc -1
+add
+br ok
+B
+jmp endif
+ok: A
+endif: ret
