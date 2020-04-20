@@ -1,11 +1,9 @@
 package CarsTest;
 
-
 import lib.Car;
 import Cars.Pickup;
 import Cars.Sedan;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -16,8 +14,8 @@ public class TestAbstract {
 
     @Before
     public void setCar() {
-        carPickup = new Pickup("Yellow", "Australia", 5, 150, "АИ-98");
-        carSedan = new Sedan("Pink", "Russia",6, 105, "АИ-92");
+        carPickup = new Pickup("Yellow", "Australia", 5, 150, "АИ-98",1350);
+        carSedan = new Sedan("Pink", "Russia",6, 105, "АИ-92", 700);
     }
     @Test
     public void getColorTest() {
