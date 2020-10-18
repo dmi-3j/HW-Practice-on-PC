@@ -14,8 +14,7 @@ public abstract class Car {
         this.power = power;
         this.fuel = fuel;
     }
-
-    public String getColor() {
+	public String getColor() {
         return color;
     }
     public String getCountry() {

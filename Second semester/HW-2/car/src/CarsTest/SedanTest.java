@@ -7,8 +7,7 @@ import static org.junit.Assert.*;
 
 public class SedanTest {
     private Sedan sedan;
-
-    @Before
+	@Before
     public void setSedan() throws Exception {
         sedan = new Sedan("Pink", "Russia",6, 105, "АИ-92", 500);
     }
