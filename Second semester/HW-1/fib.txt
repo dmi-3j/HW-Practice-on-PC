@@ -1,0 +1,50 @@
+ldc 1
+st 2
+ldc N
+st 3
+ldc 1
+st 5
+ldc 0
+st 0
+ldc 1
+st 1
+loop: ld 0
+ld 1
+add
+st 4
+ld 0
+ld 1
+cmp
+ldc 1
+sub
+br else
+ld 4
+st 0
+jmp endif
+else: ld 4
+st 1
+endif: ld 5
+ldc 1
+add
+st 5
+ldc 3
+ld 5
+cmp
+br odd
+ldc 0
+st 5
+jmp loop
+odd: ld 4
+ld 3
+cmp
+ldc 1
+add
+br true
+ld 2
+ret
+jmp end
+true: ld 4
+ld 2
+add
+st 2
+end: jmp loop
