@@ -1,0 +1,8 @@
+ldc 1
+ldc 25
+add
+ldc 25
+add
+ldc 14
+add
+ret

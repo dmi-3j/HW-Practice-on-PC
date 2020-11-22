@@ -6,7 +6,7 @@
 #include "hash_Table.h"
 #define NO_CMD 50
 #define MEMORY_SIZE 1024*1024
-#define MAX_STACK_SIZE 1024
+#define MAX_STACK_SIZE 2048
 #define STR_SIZE 30
 #define MAX_OPERATIONS 300
 
@@ -48,8 +48,7 @@ enum Opcodes {
     ret
 };
 
-size_t strToCmd(char* string)
-{
+size_t strToCmd(char* string) {
     if (strstr(string, "ld") && !strstr(string, "ldc")) {
         return ld;
     }
@@ -142,48 +141,58 @@ void byteCode(FILE* file, struct Interpreter* interpreter) {
         str[t] = 0;
         size_t cmd = strToCmd(str);
         switch (cmd) {
-        case ld:
-            char* ar = strstr(str, "ld") + 3;
-            int32_t argument = atoi(ar);
-            interpreter->prog.operations[k].arg = argument;
-            interpreter->prog.operations[k].opcode = ld;
-            break;
-        case st:
-            char* ar = strstr(str, "st") + 3;
-            int32_t argument = atoi(ar);
-            interpreter->prog.operations[k].arg = argument;
-            interpreter->prog.operations[k].opcode = st;
-            break;
-        case ldc:
-            char* ar = strstr(str, "ldc") + 4;
-            int32_t argument = atoi(ar);
-            interpreter->prog.operations[k].arg = argument;
-            interpreter->prog.operations[k].opcode = ldc;
-            break;
-        case add:
-            interpreter->prog.operations[k].opcode = add;
-            break;
-        case sub:
-            interpreter->prog.operations[k].opcode = sub;
-            break;
-        case cmp:
-            interpreter->prog.operations[k].opcode = cmp;
-            break;
-        case jmp:
-            char *ar = strstr(str, "jmp") + 4;
-            interpreter->prog.operations[k].arg = findWord(interpreter->prog.lables, ar);
-            interpreter->prog.operations[k].opcode = jmp;
-            break;
-        case br:
-            char *ar = strstr(str, "br") + 3;
-            interpreter->prog.operations[k].arg = findWord(interpreter->prog.lables, ar);
-            interpreter->prog.operations[k].opcode = br;
-            break;
-        case ret:
-            interpreter->prog.operations[k].opcode = ret;
-            break;
-        default:
-            continue;
+            case ld: {
+                char* ar = strstr(str, "ld") + 3;
+                int32_t argument = atoi(ar);
+                interpreter->prog.operations[k].arg = argument;
+                interpreter->prog.operations[k].opcode = ld;
+                break;
+            }
+            case st: {
+                char* ar = strstr(str, "st") + 3;
+                int32_t argument = atoi(ar);
+                interpreter->prog.operations[k].arg = argument;
+                interpreter->prog.operations[k].opcode = st;
+                break;
+            }
+            case ldc: {
+                char* ar = strstr(str, "ldc") + 4;
+                int32_t argument = atoi(ar);
+                interpreter->prog.operations[k].arg = argument;
+                interpreter->prog.operations[k].opcode = ldc;
+                break;
+            }
+            case add: {
+                interpreter->prog.operations[k].opcode = add;
+                break;
+            }
+            case sub: {
+                interpreter->prog.operations[k].opcode = sub;
+                break;
+            }
+            case cmp: {
+                interpreter->prog.operations[k].opcode = cmp;
+                break;
+            }
+            case jmp: {
+                char* ar = strstr(str, "jmp") + 4;
+                interpreter->prog.operations[k].arg = findWord(interpreter->prog.lables, ar);
+                interpreter->prog.operations[k].opcode = jmp;
+                break;
+            }
+            case br: {
+                char* ar = strstr(str, "br") + 3;
+                interpreter->prog.operations[k].arg = findWord(interpreter->prog.lables, ar);
+                interpreter->prog.operations[k].opcode = br;
+                break;
+            }
+            case ret: {
+                interpreter->prog.operations[k].opcode = ret;
+                break;
+            }
+            default: {
+                continue;
+            }
         }
         k++;
     }
@@ -252,8 +261,7 @@ void execute(struct Interpreter* interpreter) {
     }
 }
 
-int main()
-{
+int main() {
     struct Interpreter interpreter;
     struct Interpreter* interp = &interpreter;
     interp->state.stack.size = 0;
@@ -266,6 +274,7 @@ int main()
     if (interp->prog.operations == NULL) {
 		printf("ERROR");
 		exit(1);
+    }
     interp->prog.lables = createHashTable(hash, MAX_OPERATIONS);
     if (interp->prog.lables == NULL) {
         printf("ERROR creating hash table");
@@ -292,3 +301,4 @@ int main()
 
     return 0;
 }
+

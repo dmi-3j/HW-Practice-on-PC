@@ -106,8 +106,7 @@ void createCycle(struct List* list, int from, int to) {
 	else {
 		struct Node* node = list->head;
 		struct Node* nodeFrom = NULL;
-		while (node->next)
-		{
+		while (node->next) {
 			if (node->data == from) {
 				nodeFrom = node;
 			}

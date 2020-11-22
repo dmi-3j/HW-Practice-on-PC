@@ -27,4 +27,4 @@ void createCycle(struct List* list, int from, int to);
 int checkCycle(struct List* list);
 struct Node* findEl(struct List* list, char* word);
 
-#endif
+#endif // LISTHASH_H_INCLUDED

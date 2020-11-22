@@ -17,4 +17,4 @@ void deleteTable(struct HashTable* table);
 void statistics(struct HashTable* table);
 int findWord(struct HashTable* table, char* word);
 
-#endif
+#endif // HASH_TABLE_H_INCLUDED
