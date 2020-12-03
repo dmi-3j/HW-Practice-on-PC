@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1605352249 source:d:\desktop\1.11\hashtable.c
+	<memory.h>
+	<stdlib.h>
+	<string.h>
+	"hashTable.h"
+	"listHash.h"
+
+1605353474 d:\desktop\1.11\hashtable.h
+	"listHash.h"
+
+1605356329 d:\desktop\1.11\listhash.h
+
+1606047178 source:d:\desktop\1.11\listhash.c
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	<string.h>
+	"listHash.h"
+
+1605354165 source:d:\desktop\1.11\hash_table.c
+	<stdio.h>
+	<memory.h>
+	<stdlib.h>
+	<string.h>
+	"hash_Table.h"
+	"listHash.h"
+
+1605356329 d:\desktop\1.11\hash_table.h
+	"listHash.h"
+
+1606047445 source:d:\desktop\1.11\interpreter.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdint.h>
+	<malloc.h>
+	"hash_Table.h"
+
