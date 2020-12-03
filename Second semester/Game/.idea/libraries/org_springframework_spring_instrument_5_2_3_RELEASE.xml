@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.springframework:spring-instrument:5.2.3.RELEASE" type="repository">
+    <properties maven-id="org.springframework:spring-instrument:5.2.3.RELEASE" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-instrument/5.2.3.RELEASE/spring-instrument-5.2.3.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
